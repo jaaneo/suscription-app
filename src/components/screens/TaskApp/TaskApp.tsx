@@ -1,5 +1,6 @@
 import Container from '../../layouts/Containter'
 import TaskItem from './components/TaskItem'
+import TaskList from './components/TaskList'
 
 const tasks = [
   {
@@ -19,15 +20,7 @@ export default function TaskApp() {
     <main className="bg-slate-800 h-screen text-white flex flex-col justify-center">
       <Container>
         <h1 className="text-2xl font-bold mb-4 text-center">Task App</h1>
-        <ul className="mt-4 space-y-2">
-          {tasks.map(task => (
-            <TaskItem
-              key={task.id}
-              title={task.title}
-              body={task.body}
-            />
-          ))}
-        </ul>
+        <TaskList tasks={tasks} />
       </Container>
     </main>
   )

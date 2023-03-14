@@ -1,5 +1,4 @@
 import Container from '../../layouts/Containter'
-import TaskItem from './components/TaskItem'
 import TaskList from './components/TaskList'
 
 const tasks = [

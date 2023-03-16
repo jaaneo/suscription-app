@@ -10,12 +10,12 @@ export default function CreateTask() {
         <TextInput
           name="title"
           label="Title"
-          placeholder="Aprendiendo React"
+          placeholder='E.g. "Learn Next.js"'
           />
         <TextArea
           name="body"
           label="Body"
-          placeholder="Con Boris Sempai" />
+          placeholder='E.g. "Learn Next.js by building a task app"' />
         <Button type="submit">
           Crear tarea
         </Button>

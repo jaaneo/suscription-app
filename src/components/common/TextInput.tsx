@@ -31,7 +31,7 @@ export default function TextInput({
         name={name}
         value={value}
         placeholder={placeholder}
-        className="w-full rounded px-4 py-2 bg-slate-800"
+        className="w-full rounded px-4 py-2 bg-slate-800 focus:ring-1 focus:ring-primary-500 focus:outline-none"
         onChange={onChange}
         onBlur={onBlur} />
     </InputLayaout>

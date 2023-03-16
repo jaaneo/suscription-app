@@ -1,8 +1,11 @@
+import BaseLayaout from './components/layouts/BaseLayout'
 import { TaskApp } from './components/screens'
 
 function App() {
   return (
-    <TaskApp />
+    <BaseLayaout>
+      <TaskApp />
+    </BaseLayaout>
   )
 }
 

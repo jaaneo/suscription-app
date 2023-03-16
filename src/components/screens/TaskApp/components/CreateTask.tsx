@@ -1,5 +1,6 @@
 import TextInput from 'src/components/common/TextInput'
 import TextArea from 'src/components/common/TextArea'
+import Button from 'src/components/common/Button'
 
 export default function CreateTask() {
   return (
@@ -15,6 +16,9 @@ export default function CreateTask() {
           name="body"
           label="Body"
           placeholder="Con Boris Sempai" />
+        <Button type="submit">
+          Crear tarea
+        </Button>
       </form>
     </section>
   )

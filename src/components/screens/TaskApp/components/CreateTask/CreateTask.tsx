@@ -3,7 +3,7 @@ import TaskForm from './components/TaskForm'
 
 export default function CreateTask() {
   return (
-    <section>
+    <section className="space-y-4">
       <Button fullwidth>
         Add a new task
       </Button>

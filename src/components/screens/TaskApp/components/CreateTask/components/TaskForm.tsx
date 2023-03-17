@@ -22,7 +22,7 @@ export default function TaskForm({ onClose }: Props) {
         <Button type="submit">
           Crear tarea
         </Button>
-        <Button onClick={onClose}>
+        <Button onClick={onClose} variant="outline">
           Cancel
         </Button>
       </div>

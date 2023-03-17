@@ -17,7 +17,7 @@ const tasks = [
 
 export default function TaskApp() {
   return (
-    <main className="h-full text-white flex flex-col justify-center">
+    <main className="bg-slate-800 h-screen text-white flex flex-col justify-center">
       <Container>
         <h1 className="text-2xl font-bold mb-4 text-center">Task App</h1>
         <CreateTask />

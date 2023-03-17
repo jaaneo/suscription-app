@@ -2,9 +2,13 @@ import TextInput from 'src/components/common/TextInput'
 import TextArea from 'src/components/common/TextArea'
 import Button from 'src/components/common/Button'
 
-export default function TaskForm() {
+interface Props {
+  onClose: () => void
+}
+
+export default function TaskForm({ onClose }: Props) {
   return (
-    <form action="">
+    <form className="space-y-4">
       <TextInput
         name="title"
         label="Title"
@@ -14,9 +18,14 @@ export default function TaskForm() {
         name="body"
         label="Body"
         placeholder='E.g. "Learn Next.js by building a task app"' />
-      <Button type="submit">
-        Crear tarea
-      </Button>
+      <div className="flex gap-2">
+        <Button type="submit">
+          Crear tarea
+        </Button>
+        <Button onClick={onClose}>
+          Cancel
+        </Button>
+      </div>
     </form>
   )
 }

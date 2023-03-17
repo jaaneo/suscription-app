@@ -4,12 +4,14 @@ interface Props {
   children: React.ReactNode
   type?: 'button' | 'submit' | 'reset'
   fullwidth?: boolean
+  onClick?: () => void
 }
 
 export default function Button({
   children,
   type = 'button',
-  fullwidth = false
+  fullwidth = false,
+  onClick
 }: Props) {
   return (
     <button
@@ -18,6 +20,7 @@ export default function Button({
         fullwidth && 'w-full block' // condicional
       )}
       type={type}
+      onClick={onClick}
     >
       { children }
     </button>

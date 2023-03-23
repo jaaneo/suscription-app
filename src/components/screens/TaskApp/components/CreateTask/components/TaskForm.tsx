@@ -11,10 +11,7 @@ interface Props {
 
 export default function TaskForm({ onClose, onSubmit }: Props) {
   const {
-    title,
-    body,
-    handleTitleChange,
-    handleBodyChange,
+    register,
     handleSubmit
   } = useTaskForm({ onSubmit })
   return (
@@ -23,15 +20,13 @@ export default function TaskForm({ onClose, onSubmit }: Props) {
         name="title"
         label="Title"
         placeholder='E.g. "Learn Next.js"'
-        value={title}
-        onChange={handleTitleChange}
+        register={register}
         />
       <TextArea
         name="body"
         label="Body"
         placeholder='E.g. "Learn Next.js by building a task app"'
-        value={body}
-        onChange={handleBodyChange}
+        register={register}
         />
       <div className="flex gap-2">
         <Button type="submit">

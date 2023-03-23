@@ -1,25 +1,21 @@
-import React from 'react'
+import { FieldValues, Path, UseFormRegister } from 'react-hook-form'
 import InputLayaout from './InputLayout'
 
-interface Props {
-  name: string
+interface Props<T extends FieldValues> {
+  name: Path<T>
   type?: HTMLInputElement['type']
-  value?: string
-  placeholder?: string
   label?: string
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
-  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void
+  placeholder?: string
+  register: UseFormRegister<T>
 }
 
-export default function TextInput({
+export default function TextInput<T extends FieldValues>({
   name,
   type = 'text',
-  value,
   label,
   placeholder,
-  onChange,
-  onBlur
-}: Props) {
+  register
+}: Props<T>) {
   return (
     <InputLayaout
       name={name}
@@ -28,12 +24,11 @@ export default function TextInput({
       <input
         id={name}
         type={type}
-        name={name}
-        value={value}
-        placeholder={placeholder}
         className="w-full rounded px-4 py-2 bg-slate-800 focus:ring-1 focus:ring-primary-500 focus:outline-none"
-        onChange={onChange}
-        onBlur={onBlur} />
+        placeholder={placeholder}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...register(name)}
+      />
     </InputLayaout>
   )
 }

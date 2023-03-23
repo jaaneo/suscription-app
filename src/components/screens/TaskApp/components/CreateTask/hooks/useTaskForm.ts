@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { PartialTask } from 'src/@types/Task'
 
 interface Props {
@@ -6,31 +6,17 @@ interface Props {
 }
 
 export default function useTaskForm({ onSubmit }: Props) {
-  const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
+  const { register, handleSubmit } = useForm<PartialTask>({
+    defaultValues: {
+      title: '',
+      body: ''
+    }
+  })
 
-  const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTitle(e.target.value)
-  }
-
-  const handleBodyChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setBody(e.target.value)
-  }
-
-  const handleSubmit = (e: React.ChangeEvent<HTMLFormElement>) => {
-    e.preventDefault()
-
-    const task: PartialTask = { title, body }
-    setTitle('')
-    setBody('')
-    onSubmit(task)
-  }
+  const handleFormSubmit = handleSubmit(onSubmit)
 
   return {
-    title,
-    body,
-    handleTitleChange,
-    handleBodyChange,
-    handleSubmit
+    register,
+    handleSubmit: handleFormSubmit
   }
 }

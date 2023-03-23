@@ -1,22 +1,19 @@
+import { FieldValues, Path, UseFormRegister } from 'react-hook-form'
 import InputLayaout from './InputLayout'
 
-interface Props {
-  name: string
-  value?: string
-  placeholder?: string
+interface Props<T extends FieldValues> {
+  name: Path<T>
   label?: string
-  onChange?: (event: React.ChangeEvent<HTMLTextAreaElement>) => void
-  onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => void
+  placeholder?: string
+  register: UseFormRegister<T>
 }
 
-export default function TextArea({
+export default function TextArea<T extends FieldValues>({
   name,
-  value,
   label,
   placeholder,
-  onChange,
-  onBlur
-}: Props) {
+  register
+}: Props<T>) {
   return (
     <InputLayaout
       name={name}
@@ -24,12 +21,10 @@ export default function TextArea({
     >
       <textarea
         id={name}
-        name={name}
-        value={value}
-        placeholder={placeholder}
         className="w-full rounded px-4 py-2 bg-slate-800 focus:ring-1 focus:ring-primary-500 focus:outline-none max-h-[250px] min-h-[100px]"
-        onChange={onChange}
-        onBlur={onBlur}
+        placeholder={placeholder}
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        {...register(name)}
       />
     </InputLayaout>
   )

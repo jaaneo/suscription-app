@@ -23,7 +23,8 @@ export default function CreateTask({ onTaskAdd }: Props) {
             Add a Task
           </h2>
           <TaskForm
-            onClose={handleClose} onSubmit={handleTaskSubmit} />
+            onClose={handleClose}
+            onSubmit={handleTaskSubmit} />
         </div>
       ) : (
         <Button fullwidth onClick={handleOpen}>

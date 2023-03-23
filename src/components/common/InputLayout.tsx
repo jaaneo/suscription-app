@@ -2,12 +2,14 @@ interface Props {
   children: React.ReactNode
   name: string
   label?: string
+  errorMessage?: string
 }
 
 export default function InputLayaout({
   children,
   name,
-  label
+  label,
+  errorMessage
 }: Props) {
   return (
     <div className="mb-2">
@@ -17,6 +19,11 @@ export default function InputLayaout({
         </label>
       )}
       {children}
+      {errorMessage && (
+        <p className="text-xs text-red-500 mt-1">
+          {errorMessage}
+        </p>
+      )}
     </div>
   )
 }

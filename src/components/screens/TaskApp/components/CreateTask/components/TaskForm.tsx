@@ -12,7 +12,8 @@ interface Props {
 export default function TaskForm({ onClose, onSubmit }: Props) {
   const {
     register,
-    handleSubmit
+    handleSubmit,
+    errors
   } = useTaskForm({ onSubmit })
   return (
     <form className="space-y-4" onSubmit={handleSubmit}>
@@ -21,12 +22,14 @@ export default function TaskForm({ onClose, onSubmit }: Props) {
         label="Title"
         placeholder='E.g. "Learn Next.js"'
         register={register}
+        error={errors.title}
         />
       <TextArea
         name="body"
         label="Body"
         placeholder='E.g. "Learn Next.js by building a task app"'
         register={register}
+        error={errors.body}
         />
       <div className="flex gap-2">
         <Button type="submit">

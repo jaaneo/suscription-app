@@ -1,4 +1,4 @@
-import { FieldValues, Path, UseFormRegister } from 'react-hook-form'
+import { FieldError, FieldValues, Path, UseFormRegister } from 'react-hook-form'
 import InputLayaout from './InputLayout'
 
 interface Props<T extends FieldValues> {
@@ -7,6 +7,7 @@ interface Props<T extends FieldValues> {
   label?: string
   placeholder?: string
   register: UseFormRegister<T>
+  error?: FieldError
 }
 
 export default function TextInput<T extends FieldValues>({
@@ -14,12 +15,14 @@ export default function TextInput<T extends FieldValues>({
   type = 'text',
   label,
   placeholder,
-  register
+  register,
+  error
 }: Props<T>) {
   return (
     <InputLayaout
       name={name}
       label={label}
+      errorMessage={error?.message}
     >
       <input
         id={name}

@@ -5,13 +5,14 @@ import useCreateTask from './hooks/useCreateTask'
 
 interface Props {
   onTaskAdd: (task: Task) => void
-  onSubmit:
 }
 
-export default function CreateTask({ onTaskAdd, onSubmit }: Props) {
-  const { showForm,
+export default function CreateTask({ onTaskAdd }: Props) {
+  const {
+    showForm,
     handleOpen,
-    handleClose
+    handleClose,
+    handleTaskSubmit
   } = useCreateTask({ onTaskAdd })
 
   return (
@@ -22,7 +23,7 @@ export default function CreateTask({ onTaskAdd, onSubmit }: Props) {
             Add a Task
           </h2>
           <TaskForm
-            onClose={handleClose} onSubmit={} />
+            onClose={handleClose} onSubmit={handleTaskSubmit} />
         </div>
       ) : (
         <Button fullwidth onClick={handleOpen}>

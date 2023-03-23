@@ -32,6 +32,7 @@ export default function useCreateTask({ onTaskAdd }: Props) {
   return {
     showForm,
     handleOpen,
-    handleClose
+    handleClose,
+    handleTaskSubmit
   }
 }

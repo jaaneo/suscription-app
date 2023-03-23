@@ -3,3 +3,8 @@ export interface Task {
   title: string
   body: string
 }
+
+export interface PartialTask {
+  title: string
+  body: string
+}

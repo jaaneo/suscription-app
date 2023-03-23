@@ -3,21 +3,8 @@ import CreateTask from './components/CreateTask/CreateTask'
 import useTaskApp from './components/CreateTask/hooks/useTaskApp'
 import TaskList from './components/TaskList'
 
-const tasks = [
-  {
-    id: 1,
-    title: 'Learn React',
-    body: 'Learn React by building a task app'
-  },
-  {
-    id: 2,
-    title: 'Learn FaunaDB',
-    body: 'Learn FaunaDB by building a task app'
-  }
-]
-
 export default function TaskApp() {
-  const { task, addTask } = useTaskApp()
+  const { tasks, addTask } = useTaskApp()
   return (
     <main className="bg-slate-800 h-screen text-white flex flex-col justify-center">
       <Container>

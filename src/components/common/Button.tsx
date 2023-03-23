@@ -1,11 +1,17 @@
 import clsx from 'clsx'
 
+const VARIANTS_STYLES = {
+  solid: 'bg-primary hover:bg-primary-400 transition text-white rounded px-4 py-2',
+  outline: 'border border-primary-500 hover:border-primary-400',
+  ghost: 'bg-transparent hover:bg-primary-300 text-primary'
+}
+
 interface Props {
   children: React.ReactNode
   type?: 'button' | 'submit' | 'reset'
   fullwidth?: boolean
   onClick?: () => void
-  variant?: 'solid' | 'outline'
+  variant?: keyof typeof VARIANTS_STYLES // es tipo las keys de VARIANTS STYLES y agrega automatica%
 }
 
 export default function Button({
@@ -18,8 +24,8 @@ export default function Button({
   return (
     <button
       className={clsx(
-        variant === 'solid' && 'bg-primary hover:bg-primary-400 transition text-white rounded px-4 py-2',
-        variant === 'outline' && 'border border-primary-500 hover:border-primary-400 transition text-white rounded px-4 py-2',
+        VARIANTS_STYLES[variant] || VARIANTS_STYLES.solid,
+        'transition text-white rounded px-4 py-2',
         fullwidth && 'w-full block' // condicional
       )}
       type={type}

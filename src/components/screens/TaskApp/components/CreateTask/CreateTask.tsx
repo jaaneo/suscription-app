@@ -10,20 +10,19 @@ export default function CreateTask() {
 
   return (
     <section className="space-y-4">
-      <Button fullwidth onClick={handleOpen}>
-        Add a new task
-      </Button>
-      {showForm && (
-      <div className="bg-slate-700 p-4 rounded">
-        <h2 className="font-bold mb-2">
-          Add a Task
-        </h2>
-        <TaskForm
-          onClose={handleClose}
-        />
-      </div>
+      {showForm ? (
+        <div className="bg-slate-700 p-4 rounded">
+          <h2 className="font-bold mb-2">
+            Add a Task
+          </h2>
+          <TaskForm
+            onClose={handleClose} />
+        </div>
+      ) : (
+        <Button fullwidth onClick={handleOpen}>
+          Add a new task
+        </Button>
       )}
-
     </section>
   )
 }

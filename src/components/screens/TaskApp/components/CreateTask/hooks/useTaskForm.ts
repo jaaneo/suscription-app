@@ -21,7 +21,8 @@ export default function useTaskForm({ onSubmit }: Props) {
     e.preventDefault()
 
     const task: PartialTask = { title, body }
-
+    setTitle('')
+    setBody('')
     onSubmit(task)
   }
 

@@ -3,9 +3,10 @@ import TaskItem from './TaskItem'
 
 interface Props {
   tasks: Task[]
+  onTaskRemove: (id: string) => void
 }
 
-export default function TaskList({ tasks }: Props) {
+export default function TaskList({ tasks, onTaskRemove }: Props) {
   return (
     <section className="mt-4">
       <h2 className="text-2xl mb-2">Mis tareas</h2>
@@ -13,8 +14,10 @@ export default function TaskList({ tasks }: Props) {
         {tasks.map(task => (
           <TaskItem
             key={task.id}
+            id={task.id}
             title={task.title}
             body={task.body}
+            onRemove={onTaskRemove}
           />
         ))}
       </ul>

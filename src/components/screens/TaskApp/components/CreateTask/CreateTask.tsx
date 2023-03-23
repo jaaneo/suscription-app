@@ -1,12 +1,18 @@
+import type { Task } from 'src/@types/Task'
 import Button from 'src/components/common/Button'
 import TaskForm from './components/TaskForm'
 import useCreateTask from './hooks/useCreateTask'
 
-export default function CreateTask() {
+interface Props {
+  onTaskAdd: (task: Task) => void
+  onSubmit:
+}
+
+export default function CreateTask({ onTaskAdd, onSubmit }: Props) {
   const { showForm,
     handleOpen,
     handleClose
-  } = useCreateTask()
+  } = useCreateTask({ onTaskAdd })
 
   return (
     <section className="space-y-4">
@@ -16,7 +22,7 @@ export default function CreateTask() {
             Add a Task
           </h2>
           <TaskForm
-            onClose={handleClose} />
+            onClose={handleClose} onSubmit={} />
         </div>
       ) : (
         <Button fullwidth onClick={handleOpen}>

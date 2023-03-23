@@ -19,7 +19,7 @@ const schema = Yup.object({
 })
 
 export default function useTaskForm({ onSubmit }: Props) {
-  const { register, handleSubmit, formState: { errors } } = useForm<PartialTask>({
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<PartialTask>({
     defaultValues: {
       title: '',
       body: ''
@@ -27,7 +27,10 @@ export default function useTaskForm({ onSubmit }: Props) {
     resolver: yupResolver(schema)
   })
 
-  const handleFormSubmit = handleSubmit(onSubmit)
+  const handleFormSubmit = handleSubmit(data => {
+    onSubmit(data)
+    reset()
+  })
 
   return {
     register,

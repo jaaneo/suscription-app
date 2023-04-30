@@ -1,2 +1,5 @@
-// eslint-disable-next-line import/prefer-default-export
 export { default as TaskApp } from './TaskApp/TaskApp'
+export { default as Landing } from './Landing/Landing'
+export { default as Login } from './Login/Login'
+export { default as Register } from './Register/Register'
+export { default as NotFound } from './NotFound'

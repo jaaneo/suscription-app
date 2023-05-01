@@ -3,15 +3,10 @@ import * as Yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { LoginPayload } from 'src/@types/User'
 
-interface Props {
-  onSubmit: (payload: LoginPayload) => void
-}
-
 const schema = Yup.object({
   email: Yup.string()
     .email('Invalid email')
-    .required('Email is required')
-    .max(20, 'Title must be at most 20 characters'),
+    .required('Email is required'),
   password: Yup.string()
     .required('Body is required')
     .min(3, 'Body must be at least 3 characters')
@@ -19,7 +14,7 @@ const schema = Yup.object({
 })
 
 export default function useLoginForm() {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<LoginPayload>({
+  const { register, handleSubmit, formState: { errors } } = useForm<LoginPayload>({
     defaultValues: {
       email: '',
       password: ''
@@ -28,8 +23,8 @@ export default function useLoginForm() {
   })
 
   const handleFormSubmit = handleSubmit(data => {
+    // eslint-disable-next-line no-console
     console.log(data)
-    reset()
   })
 
   return {

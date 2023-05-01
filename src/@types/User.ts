@@ -3,7 +3,7 @@ export type User = {
   email: string
   password: string
   firstName: string
-  lastname: string
+  lastName: string
 }
 
 export type LoginPayload = {

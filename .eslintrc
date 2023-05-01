@@ -30,7 +30,7 @@
     "react/jsx-key": "off",
     "linebreak-style": "off",
     "import/no-extraneous-dependencies": 0,
-    "no-console": 1,
+    "no-console": 0,
     "object-curly-newline": 0,
     "react/jsx-one-expression-per-line": 0,
     "arrow-body-style": 0,

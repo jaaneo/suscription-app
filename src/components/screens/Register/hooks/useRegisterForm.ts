@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form'
 import * as Yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { RegisterPayload } from 'src/@types/User'
+import getAuthService from 'src/services/authService'
 
 const schema = Yup.object({
   email: Yup.string()
@@ -39,8 +40,14 @@ export default function useRegisterForm() {
     resolver: yupResolver(schema)
   })
 
-  const handleFormSubmit = handleSubmit(data => {
-    console.log(data)
+  const handleFormSubmit = handleSubmit(async data => {
+    const responseBody = await getAuthService().register({
+      firstName: data.firstName,
+      lastName: data.lastName,
+      email: data.email,
+      password: data.password
+    })
+    console.log(responseBody)
   })
 
   return {

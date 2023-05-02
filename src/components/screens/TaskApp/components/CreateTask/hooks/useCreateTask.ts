@@ -8,7 +8,7 @@ interface Props {
 
 interface PartialTask {
   title: string
-  body: string
+  description: string
 }
 
 export default function useCreateTask({ onTaskAdd }: Props) {
@@ -22,9 +22,9 @@ export default function useCreateTask({ onTaskAdd }: Props) {
     setShowForm(false)
   }
 
-  const handleTaskSubmit = ({ title, body }: PartialTask) => {
+  const handleTaskSubmit = ({ title, description }: PartialTask) => {
     const id = nanoid()
-    const task: Task = { id, title, body }
+    const task: Task = { id, title, description }
 
     onTaskAdd(task)
   }

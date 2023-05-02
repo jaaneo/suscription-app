@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form'
 import * as Yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { LoginPayload } from 'src/@types/User'
+import getAuthService from 'src/services/authService'
 
 const schema = Yup.object({
   email: Yup.string()
@@ -22,9 +23,9 @@ export default function useLoginForm() {
     resolver: yupResolver(schema)
   })
 
-  const handleFormSubmit = handleSubmit(data => {
-    // eslint-disable-next-line no-console
-    console.log(data)
+  const handleFormSubmit = handleSubmit(async data => {
+    const responseBody = await getAuthService().login(data)
+    console.log(responseBody)
   })
 
   return {

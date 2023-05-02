@@ -32,7 +32,7 @@ export default function Login() {
         <Button type="submit">
           Iniciar sesión
         </Button>
-        <Link to="/register" className="text-primary-500 hover:text-primary-300 transition text-sm text-center">
+        <Link to="/register" replace className="text-primary-500 hover:text-primary-300 transition text-sm text-center">
           ¿No tienes cuenta? Regístrate
         </Link>
       </form>

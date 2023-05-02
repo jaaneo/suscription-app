@@ -1,10 +1,10 @@
 import { useForm } from 'react-hook-form'
 import * as Yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { PartialTask } from 'src/@types/Task'
+import { CreateTaskPayload } from 'src/@types/Task'
 
 interface Props {
-  onSubmit: (task: PartialTask) => void
+  onSubmit: (task: CreateTaskPayload) => void
 }
 
 const schema = Yup.object({
@@ -12,17 +12,17 @@ const schema = Yup.object({
     .required('Title is required')
     .min(3, 'Title must be at least 3 characters')
     .max(20, 'Title must be at most 20 characters'),
-  body: Yup.string()
+  description: Yup.string()
     .required('Body is required')
     .min(3, 'Body must be at least 3 characters')
     .max(100, 'Body must be at most 100 characters')
 })
 
 export default function useTaskForm({ onSubmit }: Props) {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<PartialTask>({
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<CreateTaskPayload>({
     defaultValues: {
       title: '',
-      body: ''
+      description: ''
     },
     resolver: yupResolver(schema)
   })

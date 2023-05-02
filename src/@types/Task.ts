@@ -1,10 +1,10 @@
 export interface Task {
   id: string
   title: string
-  body: string
+  description: string
+  done?: boolean
 }
 
-export interface PartialTask {
-  title: string
-  body: string
-}
+export type CreateTaskPayload = Omit<Task, 'id'>
+
+export type UpdateTaskPayload = Partial<CreateTaskPayload>

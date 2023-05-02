@@ -22,7 +22,7 @@ export default function TaskList({ tasks, onTaskRemove }: Props) {
               key={task.id}
               id={task.id}
               title={task.title}
-              body={task.body}
+              body={task.description}
               onRemove={onTaskRemove}
             />
           ))}

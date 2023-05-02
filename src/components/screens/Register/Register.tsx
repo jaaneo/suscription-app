@@ -8,7 +8,7 @@ export default function Register() {
   return (
     <div className="max-w-md w-full mx-auto flex flex-col justify-center items-center">
       <h1 className="text-2xl mb-4">
-        Login
+        Register
       </h1>
       <form
         onSubmit={handleSubmit}
@@ -54,7 +54,7 @@ export default function Register() {
         <Button type="submit">
           Registrate
         </Button>
-        <Link to="/register" className="text-primary-500 hover:text-primary-300 transition text-sm text-center">
+        <Link to="/login" replace className="text-primary-500 hover:text-primary-300 transition text-sm text-center">
           ¿Ya tienes cuenta? Inicia sesión
         </Link>
       </form>

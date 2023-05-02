@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form'
 import * as Yup from 'yup'
-import { Toaster, toast } from 'react-hot-toast'
+import { toast } from 'react-hot-toast'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { RegisterPayload } from 'src/@types/User'
 import getAuthService from 'src/services/authService'

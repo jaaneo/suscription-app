@@ -1,10 +1,9 @@
-import type { Task } from 'src/@types/Task'
 import Button from 'src/components/common/Button'
 import TaskForm from './components/TaskForm'
 import useCreateTask from './hooks/useCreateTask'
 
 interface Props {
-  onTaskAdd: (task: Task) => void
+  onTaskAdd: () => void
 }
 
 export default function CreateTask({ onTaskAdd }: Props) {

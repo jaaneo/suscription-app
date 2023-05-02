@@ -12,6 +12,7 @@ interface Props {
   fullwidth?: boolean
   onClick?: () => void
   variant?: keyof typeof VARIANTS_STYLES // es tipo las keys de VARIANTS STYLES y agrega automatica%
+  disabled?: boolean
 }
 
 export default function Button({
@@ -19,7 +20,8 @@ export default function Button({
   type = 'button',
   fullwidth = false,
   onClick,
-  variant = 'solid'
+  variant = 'solid',
+  disabled
 }: Props) {
   return (
     <button
@@ -30,6 +32,7 @@ export default function Button({
       )}
       type={type}
       onClick={onClick}
+      disabled={disabled}
     >
       { children }
     </button>

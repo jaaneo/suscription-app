@@ -1,10 +1,11 @@
 import Button from 'src/components/common/Button'
+import useRemoveTask from '../hooks/useRemoveTask'
 
 interface Props {
   title: string
   body: string
   id: string
-  onRemove: (id: string) => void
+  onRemove: () => void
 }
 
 export default function TaskItem({
@@ -13,9 +14,7 @@ export default function TaskItem({
   body,
   onRemove
 }: Props) {
-  const handleRemove = () => {
-    onRemove(id)
-  }
+  const { handleRemove, loading } = useRemoveTask(id, onRemove)
 
   return (
     <li className="rounded w-full bg-slate-700 px-6 py-4">
@@ -28,7 +27,7 @@ export default function TaskItem({
       <p className="text-sm mb-4">
         {body}
       </p>
-      <Button variant="text" onClick={handleRemove}>
+      <Button variant="text" onClick={handleRemove} disabled={loading}>
         Eliminar
       </Button>
     </li>

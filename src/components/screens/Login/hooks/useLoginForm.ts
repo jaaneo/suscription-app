@@ -5,7 +5,7 @@ import { LoginPayload } from 'src/@types/User'
 import getAuthService from 'src/services/authService'
 import { useAuth } from 'src/components/context/AuthContext'
 import { toast } from 'react-hot-toast'
-import { Axios, AxiosError } from 'axios'
+import { AxiosError } from 'axios'
 import { ServiceError } from 'src/@types/ServiceError'
 
 const schema = Yup.object({
@@ -45,7 +45,4 @@ export default function useLoginForm() {
     errors,
     handleSubmit: handleFormSubmit
   }
-}
-function Token(token: any) {
-  throw new Error('Function not implemented.')
 }

@@ -26,7 +26,7 @@ export default function TaskForm({ onClose, onSubmit }: Props) {
         />
       <TextArea
         name="description"
-        label="description"
+        label="Description"
         placeholder='E.g. "Learn Next.js by building a task app"'
         register={register}
         error={errors.description}

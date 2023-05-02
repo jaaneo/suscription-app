@@ -1,8 +1,11 @@
 import { useForm } from 'react-hook-form'
 import * as Yup from 'yup'
+import { Toaster, toast } from 'react-hot-toast'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { RegisterPayload } from 'src/@types/User'
 import getAuthService from 'src/services/authService'
+import { AxiosError } from 'axios'
+import { ServiceError } from 'src/@types/ServiceError'
 
 const schema = Yup.object({
   email: Yup.string()
@@ -41,13 +44,19 @@ export default function useRegisterForm() {
   })
 
   const handleFormSubmit = handleSubmit(async data => {
-    const responseBody = await getAuthService().register({
-      firstName: data.firstName,
-      lastName: data.lastName,
-      email: data.email,
-      password: data.password
-    })
-    console.log(responseBody)
+    try {
+      const responseBody = await getAuthService().register({
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        password: data.password
+      })
+      console.log(responseBody)
+    } catch (error) {
+      const axiosError = error as AxiosError
+      const serviceErrorResponse = axiosError.response?.data as ServiceError
+      toast.error(serviceErrorResponse.message)
+    }
   })
 
   return {

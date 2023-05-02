@@ -3,6 +3,10 @@ import * as Yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { LoginPayload } from 'src/@types/User'
 import getAuthService from 'src/services/authService'
+import { useAuth } from 'src/components/context/AuthContext'
+import { toast } from 'react-hot-toast'
+import { Axios, AxiosError } from 'axios'
+import { ServiceError } from 'src/@types/ServiceError'
 
 const schema = Yup.object({
   email: Yup.string()
@@ -15,6 +19,7 @@ const schema = Yup.object({
 })
 
 export default function useLoginForm() {
+  const { registerToken } = useAuth()
   const { register, handleSubmit, formState: { errors } } = useForm<LoginPayload>({
     defaultValues: {
       email: '',
@@ -24,8 +29,15 @@ export default function useLoginForm() {
   })
 
   const handleFormSubmit = handleSubmit(async data => {
-    const responseBody = await getAuthService().login(data)
-    console.log(responseBody)
+    try {
+      const { token } = await getAuthService().login(data)
+      registerToken(token)
+      toast.success('Login successful')
+    } catch (error) {
+      const axiosError = error as AxiosError
+      const serviceErrorResponse = axiosError.response?.data as ServiceError
+      toast.error(serviceErrorResponse.message)
+    }
   })
 
   return {
@@ -33,4 +45,7 @@ export default function useLoginForm() {
     errors,
     handleSubmit: handleFormSubmit
   }
+}
+function Token(token: any) {
+  throw new Error('Function not implemented.')
 }

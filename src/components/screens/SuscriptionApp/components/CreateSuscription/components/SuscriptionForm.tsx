@@ -1,12 +1,12 @@
 import TextInput from 'src/components/common/TextInput'
 import TextArea from 'src/components/common/TextArea'
 import Button from 'src/components/common/Button'
-import type { CreateTaskPayload } from 'src/@types/Task'
-import useTaskForm from '../hooks/useTaskForm'
+import { CreateSuscriptionPayload } from 'src/@types/Suscription'
+import useTaskForm from '../hooks/useSuscriptionForm'
 
 interface Props {
   onClose: () => void
-  onSubmit: (values: CreateTaskPayload) => void
+  onSubmit: (values: CreateSuscriptionPayload) => void
 }
 
 export default function TaskForm({ onClose, onSubmit }: Props) {
@@ -18,11 +18,11 @@ export default function TaskForm({ onClose, onSubmit }: Props) {
   return (
     <form className="space-y-4" onSubmit={handleSubmit}>
       <TextInput
-        name="title"
-        label="Title"
-        placeholder='E.g. "Learn Next.js"'
+        name="name"
+        label="Name account streaming"
+        placeholder='E.g. "Netflix", "Tidal" or "Disney +"'
         register={register}
-        error={errors.title}
+        error={errors.name}
         />
       <TextArea
         name="description"

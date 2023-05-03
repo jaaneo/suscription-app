@@ -1,25 +1,23 @@
 import { useCallback, useEffect, useState } from 'react'
-import { Task } from 'src/@types/Task'
 import { useAuth } from 'src/components/context/AuthContext'
-import getTaskService from 'src/services/taskService'
 import { toast } from 'react-hot-toast'
+import getSuscriptionService from 'src/services/suscriptionService'
+import { Suscription } from 'src/@types/Suscription'
 
-export default function useAllTasks() {
+export default function useAllSuscription() {
   const { token } = useAuth()
-  const [tasks, setTasks] = useState<Task[]>([])
+  const [suscriptions, setSuscriptions] = useState<Suscription[]>([])
   const [loading, setLoading] = useState(false)
 
   const handleFetch = useCallback(async () => {
     setLoading(true)
     try {
-      const receivedTasks = await getTaskService(token).getAll()
-      setTasks(receivedTasks)
+      const receivedSuscriptions = await getSuscriptionService(token).getAll()
+      setSuscriptions(receivedSuscriptions)
     } catch (error) {
-      console.log(error)
-      toast.error('Error fetching tasks')
+      toast.error('Error fetching suscriptions')
     } finally {
       setLoading(false)
-      console.log('hola error')
     }
   }, [token])
 
@@ -28,7 +26,7 @@ export default function useAllTasks() {
   }, [handleFetch])
 
   return {
-    tasks,
+    suscriptions,
     refetch: handleFetch,
     loading
   }

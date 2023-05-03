@@ -1,33 +1,33 @@
 import Button from 'src/components/common/Button'
-import TaskForm from './components/TaskForm'
-import useCreateTask from './hooks/useCreateTask'
+import TaskForm from './components/SuscriptionForm'
+import useCreateTask from './hooks/useCreateSuscription'
 
 interface Props {
-  onTaskAdd: () => void
+  onSuscriptionAdd: () => void
 }
 
-export default function CreateTask({ onTaskAdd }: Props) {
+export default function CreateSuscription({ onSuscriptionAdd }: Props) {
   const {
     showForm,
     handleOpen,
     handleClose,
-    handleTaskSubmit
-  } = useCreateTask({ onTaskAdd })
+    handleSuscriptionSubmit
+  } = useCreateTask({ onSuscriptionAdd })
 
   return (
     <section className="space-y-4">
       {showForm ? (
         <div className="bg-slate-700 p-4 rounded">
           <h2 className="font-bold mb-2">
-            Add a Task
+            Agrega una nueva cuenta de Streaming
           </h2>
           <TaskForm
             onClose={handleClose}
-            onSubmit={handleTaskSubmit} />
+            onSubmit={handleSuscriptionSubmit} />
         </div>
       ) : (
         <Button fullwidth onClick={handleOpen}>
-          Add a new task
+          Add a new Suscription streaming
         </Button>
       )}
     </section>

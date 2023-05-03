@@ -1,14 +1,14 @@
 import { useCallback, useState } from 'react'
 import { toast } from 'react-hot-toast'
-import type { CreateTaskPayload } from 'src/@types/Task'
+import { CreateSuscriptionPayload } from 'src/@types/Suscription'
 import { useAuth } from 'src/components/context/AuthContext'
-import getTaskService from 'src/services/taskService'
+import getSuscriptionService from 'src/services/suscriptionService'
 
 interface Props {
-  onTaskAdd: () => void
+  onSuscriptionAdd: () => void
 }
 
-export default function useCreateTask({ onTaskAdd }: Props) {
+export default function useCreateSuscription({ onSuscriptionAdd }: Props) {
   const { token } = useAuth()
   const [showForm, setShowForm] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -21,28 +21,29 @@ export default function useCreateTask({ onTaskAdd }: Props) {
     setShowForm(false)
   }
 
-  const handleTaskSubmit = useCallback(async ({ title, description }: CreateTaskPayload) => {
+  const handleSuscriptionSubmit = useCallback(async ({ name, description }:
+  CreateSuscriptionPayload) => {
     setLoading(true)
     try {
-      await getTaskService(token).create({
-        title,
+      await getSuscriptionService(token).create({
+        name,
         description
       })
-      onTaskAdd()
-      toast.success('Task created')
+      onSuscriptionAdd()
+      toast.success('Suscription created')
     } catch (error) {
       console.log(error)
-      toast.error('Error creating task')
+      toast.error('Error creating suscription')
     } finally {
       setLoading(false)
     }
-  }, [onTaskAdd, token])
+  }, [onSuscriptionAdd, token])
 
   return {
     showForm,
     loading,
     handleOpen,
     handleClose,
-    handleTaskSubmit
+    handleSuscriptionSubmit
   }
 }

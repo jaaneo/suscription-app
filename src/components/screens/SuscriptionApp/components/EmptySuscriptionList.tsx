@@ -1,11 +1,11 @@
-export default function EmptyTaskList() {
+export default function EmptySuscriptionList() {
   return (
     <section className="py-16 text-center">
       <h2 className="text-xt mb-2">
         No hay tareas
       </h2>
       <p className="text-sm opacity-50">
-        Agrega una tarea para comenzar
+        Agrega una suscripción de streaming para comenzar
       </p>
     </section>
   )

@@ -1,10 +1,10 @@
 import { useForm } from 'react-hook-form'
 import * as Yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
-import { CreateTaskPayload } from 'src/@types/Task'
+import { CreateSuscriptionPayload } from 'src/@types/Suscription'
 
 interface Props {
-  onSubmit: (task: CreateTaskPayload) => void
+  onSubmit: (task: CreateSuscriptionPayload) => void
 }
 
 const schema = Yup.object({
@@ -19,10 +19,14 @@ const schema = Yup.object({
 })
 
 export default function useTaskForm({ onSubmit }: Props) {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm<CreateTaskPayload>({
+  const {
+    register, handleSubmit, formState: { errors }, reset } = useForm<CreateSuscriptionPayload>({
     defaultValues: {
-      title: '',
-      description: ''
+      name: '',
+      description: '',
+      datePayment: '',
+      image: '',
+      type: ''
     },
     resolver: yupResolver(schema)
   })

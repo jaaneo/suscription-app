@@ -1,4 +1,4 @@
-export { default as TaskApp } from './TaskApp/TaskApp'
+export { default as SuscriptionApp } from './SuscriptionApp/SuscriptionApp'
 export { default as Landing } from './Landing/Landing'
 export { default as Login } from './Login/Login'
 export { default as Register } from './Register/Register'

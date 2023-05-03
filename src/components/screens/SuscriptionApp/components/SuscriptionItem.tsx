@@ -1,20 +1,20 @@
 import Button from 'src/components/common/Button'
-import useRemoveTask from '../hooks/useRemoveTask'
+import useRemoveSuscription from '../hooks/useRemoveSuscription'
 
 interface Props {
-  title: string
-  body: string
+  name: string
+  description: string
   id: string
   onRemove: () => void
 }
 
-export default function TaskItem({
+export default function SuscriptionItem({
   id,
-  title,
-  body,
+  name,
+  description,
   onRemove
 }: Props) {
-  const { handleRemove, loading } = useRemoveTask(id, onRemove)
+  const { handleRemove, loading } = useRemoveSuscription(id, onRemove)
 
   return (
     <li className="rounded w-full bg-slate-700 px-6 py-4">
@@ -22,10 +22,10 @@ export default function TaskItem({
         ID: {id}
       </p>
       <h2 className="font-bold">
-        {title}
+        {name}
       </h2>
       <p className="text-sm mb-4">
-        {body}
+        {description}
       </p>
       <Button variant="text" onClick={handleRemove} disabled={loading}>
         Eliminar

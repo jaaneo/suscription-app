@@ -54,7 +54,7 @@ export default function SuscriptionForm({ onClose, onSubmit }: Props) {
         error={errors.type}
         />
       <div className="flex gap-2">
-        <Button type="submit">
+        <Button type="submit" variant="default">
           Crear tarea
         </Button>
         <Button onClick={onClose} variant="outline">

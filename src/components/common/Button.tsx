@@ -2,6 +2,7 @@ import clsx from 'clsx'
 
 const VARIANTS_STYLES = {
   solid: 'bg-primary hover:bg-primary-400 transition text-white rounded px-4 py-2',
+  default: 'bg-primary border border-primary-500 hover:border-primary-400 mb-8',
   outline: 'border border-primary-500 hover:border-primary-400 mb-8',
   remove: 'bg-red-500 bg-opacity-10 hover:bg-red-600 text-white focus:ring-red-500',
   edit: 'bg-yellow-500 bg-opacity-10 hover:bg-yellow-600 text-white focus:ring-yellow-500'

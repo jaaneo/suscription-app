@@ -14,7 +14,7 @@ export default function BaseLayaout({ children }: Props) {
             </a>
             <div className="flex md:order-2">
               <button type="button" className="text-white bg-slate-700 hover:bg-slate-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                <a href="/login">LOGIN/REGISTER</a>
+                <a href="/login">LOGIN</a>
               </button>
             </div>
             <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">

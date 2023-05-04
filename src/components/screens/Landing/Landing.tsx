@@ -1,10 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { Link } from 'react-router-dom'
 import Button from 'src/components/common/Button'
 
 export default function Landing() {
   return (
     <div className="container mx-auto flex flex-col justify-center items-center space-y-4">
-      <h1 className="text-4xl font-bold">
+      <h1 className="text-4xl font-bold mb-6">
         My Suscription App
       </h1>
       <p>
@@ -16,5 +17,6 @@ export default function Landing() {
         </Button>
       </Link>
     </div>
+
   )
 }

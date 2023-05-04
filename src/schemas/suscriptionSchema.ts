@@ -1,13 +1,7 @@
-import { useForm } from 'react-hook-form'
 import * as Yup from 'yup'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { CreateSuscriptionPayload } from 'src/@types/Suscription'
 
-interface Props {
-  onSubmit: (suscription: CreateSuscriptionPayload) => void
-}
-
-const schema = Yup.object({
+// eslint-disable-next-line import/prefer-default-export
+export const suscriptionSchema = Yup.object({
   name: Yup.string()
     .required('Name is required')
     .min(3, 'Name must be at least 3 characters')
@@ -29,29 +23,3 @@ const schema = Yup.object({
     .min(3, 'Type must be at least 3 characters')
     .max(100, 'Type must be at most 100 characters')
 })
-
-export default function useSuscriptionForm({ onSubmit }: Props) {
-  const {
-    register, handleSubmit, formState: { errors }, reset } = useForm<CreateSuscriptionPayload>({
-    defaultValues: {
-      name: '',
-      description: '',
-      datePayment: '',
-      image: '',
-      type: ''
-    },
-    resolver: yupResolver(schema)
-  })
-
-  const handleFormSubmit = handleSubmit(data => {
-    onSubmit(data)
-    console.log(data)
-    reset()
-  })
-
-  return {
-    register,
-    errors,
-    handleSubmit: handleFormSubmit
-  }
-}

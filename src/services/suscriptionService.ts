@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { CreateSuscriptionPayload, Suscription, UpdateSuscriptionPayload } from 'src/@types/Suscription'
 
-const baseURL = 'http://localhost:4000/v1/suscriptions'
+const baseURL = 'http://localhost:4500/api/suscriptions'
 
 const getSuscriptionClient = (token?: string) => axios.create({
   baseURL,

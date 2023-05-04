@@ -15,6 +15,7 @@ export default function useAllSuscription() {
       const receivedSuscriptions = await getSuscriptionService(token).getAll()
       setSuscriptions(receivedSuscriptions)
     } catch (error) {
+      console.log(error)
       toast.error('Error fetching suscriptions')
     } finally {
       setLoading(false)

@@ -21,15 +21,20 @@ export default function useCreateSuscription({ onSuscriptionAdd }: Props) {
     setShowForm(false)
   }
 
-  const handleSuscriptionSubmit = useCallback(async ({ name, description }:
+  const handleSuscriptionSubmit = useCallback(async ({
+    name, description, datePayment, image, type }:
   CreateSuscriptionPayload) => {
     setLoading(true)
     try {
       await getSuscriptionService(token).create({
         name,
-        description
+        description,
+        datePayment,
+        image,
+        type
       })
       onSuscriptionAdd()
+      console.log(onSuscriptionAdd)
       toast.success('Suscription created')
     } catch (error) {
       console.log(error)

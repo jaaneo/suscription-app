@@ -13,9 +13,9 @@ const schema = Yup.object({
     .email('Invalid email')
     .required('Email is required'),
   password: Yup.string()
-    .required('Body is required')
-    .min(3, 'Body must be at least 3 characters')
-    .max(100, 'Body must be at most 100 characters')
+    .required('Password is required')
+    .min(3, 'Password must be at least 3 characters')
+    .max(100, 'Password must be at most 100 characters')
 })
 
 export default function useLoginForm() {

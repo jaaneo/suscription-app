@@ -7,7 +7,8 @@ interface Props {
   onSuscriptionRemove: () => void
 }
 
-export default function SuscriptionList({ suscriptions, onSuscriptionRemove }: Props) {
+export default function SuscriptionList({
+  suscriptions, onSuscriptionRemove }: Props) {
   return (
     <section className="my-4">
       <h2 className="text-2xl mb-2">
@@ -17,12 +18,15 @@ export default function SuscriptionList({ suscriptions, onSuscriptionRemove }: P
         <EmptySuscriptionList />
       ) : (
         <ul className="space-y-2">
-          {suscriptions.map(task => (
+          {suscriptions.map(suscription => (
             <SuscriptionItem
-              key={task.id}
-              id={task.id}
-              name={task.name}
-              description={task.description}
+              key={suscription.id}
+              id={suscription.id}
+              name={suscription.name}
+              description={suscription.description}
+              datePayment={suscription.datePayment}
+              image={suscription.image}
+              type={suscription.type}
               onRemove={onSuscriptionRemove}
             />
           ))}

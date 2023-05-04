@@ -13,16 +13,16 @@ const schema = Yup.object({
     .required('Email is required'),
   firstName: Yup.string()
     .required('First name is required')
-    .min(3, 'Body must be at least 3 characters')
-    .max(30, 'Body must be at most 100 characters'),
+    .min(3, 'Firstname must be at least 3 characters')
+    .max(30, 'Firstname must be at most 100 characters'),
   lastName: Yup.string()
     .required('Last name is required')
-    .min(3, 'Body must be at least 3 characters')
-    .max(30, 'Body must be at most 100 characters'),
+    .min(3, 'Lastname must be at least 3 characters')
+    .max(30, 'Lastname must be at most 100 characters'),
   password: Yup.string()
     .required('Password is required')
-    .min(3, 'Body must be at least 3 characters')
-    .max(100, 'Body must be at most 100 characters'),
+    .min(3, 'Password must be at least 3 characters')
+    .max(100, 'Password must be at most 100 characters'),
   passwordConfirm: Yup.string()
     .oneOf([Yup.ref('password'), ''], 'Passwords must match')
     .required('Password confirmation is required')
@@ -52,6 +52,7 @@ export default function useRegisterForm() {
         password: data.password
       })
       console.log(responseBody)
+      toast.success('Register successful')
     } catch (error) {
       const axiosError = error as AxiosError
       const serviceErrorResponse = axiosError.response?.data as ServiceError

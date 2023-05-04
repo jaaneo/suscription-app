@@ -1,6 +1,6 @@
 import Button from 'src/components/common/Button'
-import TaskForm from './components/SuscriptionForm'
-import useCreateTask from './hooks/useCreateSuscription'
+import useCreateSuscription from './hooks/useCreateSuscription'
+import SuscriptionForm from './components/SuscriptionForm'
 
 interface Props {
   onSuscriptionAdd: () => void
@@ -12,22 +12,22 @@ export default function CreateSuscription({ onSuscriptionAdd }: Props) {
     handleOpen,
     handleClose,
     handleSuscriptionSubmit
-  } = useCreateTask({ onSuscriptionAdd })
+  } = useCreateSuscription({ onSuscriptionAdd })
 
   return (
     <section className="space-y-4">
       {showForm ? (
         <div className="bg-slate-700 p-4 rounded">
-          <h2 className="font-bold mb-2">
-            Agrega una nueva cuenta de Streaming
+          <h2 className="font-bold mb-4 text-center">
+            Agrega aquí tus cuentas de Streaming
           </h2>
-          <TaskForm
+          <SuscriptionForm
             onClose={handleClose}
             onSubmit={handleSuscriptionSubmit} />
         </div>
       ) : (
         <Button fullwidth onClick={handleOpen}>
-          Add a new Suscription streaming
+          Añade una nueva suscripción streaming
         </Button>
       )}
     </section>

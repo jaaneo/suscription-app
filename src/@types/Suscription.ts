@@ -2,9 +2,9 @@ export interface Suscription {
   id: string
   name: string
   description: string
-  datePayment?: string
-  image?: string
-  type?: string
+  datePayment: string
+  image: string
+  type: string
   done?: boolean
 }
 

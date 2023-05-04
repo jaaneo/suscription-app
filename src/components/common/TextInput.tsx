@@ -27,7 +27,7 @@ export default function TextInput<T extends FieldValues>({
       <input
         id={name}
         type={type}
-        className="w-full rounded px-4 py-2 bg-slate-800 focus:ring-1 focus:ring-primary-500 focus:outline-none"
+        className="w-full rounded px-4 py-4 bg-slate-800 focus:ring-1 focus:ring-primary-500 focus:outline-none"
         placeholder={placeholder}
         // eslint-disable-next-line react/jsx-props-no-spreading
         {...register(name)}

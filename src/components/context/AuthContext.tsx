@@ -14,7 +14,7 @@ interface Props {
   children: React.ReactNode
 }
 
-const TOKEN_KEY = 'task-app::token'
+const TOKEN_KEY = 'suscription-app::token'
 
 export function AuthProvider({ children }: Props) {
   const [token, setToken] = useState<string>()

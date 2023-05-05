@@ -22,7 +22,7 @@ export default function useCreateSuscription({ onSuscriptionAdd }: Props) {
   }
 
   const handleSuscriptionSubmit = useCallback(async ({
-    name, description, datePayment, image, type }:
+    name, description, datePayment, image, amount }:
   CreateSuscriptionPayload) => {
     setLoading(true)
     try {
@@ -31,7 +31,7 @@ export default function useCreateSuscription({ onSuscriptionAdd }: Props) {
         description,
         datePayment,
         image,
-        type
+        amount
       })
       onSuscriptionAdd()
       console.log(onSuscriptionAdd)

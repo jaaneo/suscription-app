@@ -9,7 +9,7 @@ export const suscriptionSchema = Yup.object({
   description: Yup.string()
     .required('Description is required')
     .min(3, 'Description must be at least 3 characters')
-    .max(100, 'Description must be at most 100 characters'),
+    .max(1000, 'Description must be at most 100 characters'),
   datePayment: Yup.string()
     .required('Date payment is required')
     .min(3, 'Date payment must be at least 3 characters')

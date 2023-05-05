@@ -1,13 +1,12 @@
 import Button from 'src/components/common/Button'
 import useRemoveSuscription from '../hooks/useRemoveSuscription'
-import CreateSuscription from './CreateSuscription/CreateSuscription'
 
 interface Props {
   name: string
   description: string
   datePayment: string
   image: string
-  type: string
+  amount: string
   id: string
   onRemove: () => void
 }
@@ -18,37 +17,34 @@ export default function SuscriptionItem({
   description,
   datePayment,
   image,
-  type,
+  amount,
   onRemove
 }: Props) {
   const { handleRemove, loading } = useRemoveSuscription(id, onRemove)
 
   return (
-    <li className="rounded w-full bg-slate-700 px-6 py-4">
-      <p className="text-xs opacity-50">
-        ID: {id}
-      </p>
-      <h2 className="font-bold">
-        Cuenta: {name}
-      </h2>
-      <p className="text-sm mb-4">
-        Descripción: {description}
-      </p>
-      <p className="text-sm mb-4">
-        Fecha de pago: {datePayment}
-      </p>
-      <p className="text-sm mb-4">
-        Logo: <img src={image} alt="logo de la cuenta" className="inline-block rounded-full w-16 h-16" />
-      </p>
-      <p className="text-sm mb-4">
-        Tipo de cuenta: {type}
-      </p>
-      <Button variant="remove" onClick={handleRemove} disabled={loading}>
-        Eliminar
-      </Button>
+    <div className="grid grid-cols-2">
+      <div className="rounded w-full bg-slate-700 px-6 py-4">
+        <p className="text-sm mb-4">
+          <img src={image} alt="logo de la cuenta" className="inline-block rounded-full w-16 h-16" />
+        </p>
+        <h2 className="font-bold">Plataforma:</h2>
+        <p className="font-light text-lg mb-4">{name}</p>
+        <h2 className="font-bold">Fecha de pago:</h2>
+        <p className="font-light text-lg mb-4">{datePayment}</p>
+        <h2 className="font-bold">Monto a pagar: </h2>
+        <p className="font-light text-lg mb-4">${amount}</p>
+      </div>
+      <div className="rounded w-full bg-slate-700 px-6 py-4">
+        <br /><br /><br /><h2 className="font-bold">Descripción:</h2>
+        <p className="font-light text-lg mb-4">{description}</p>
+      </div>
       <Button variant="edit" disabled={loading}>
         Editar
       </Button>
-    </li>
+      <Button variant="remove" onClick={handleRemove} disabled={loading}>
+        Eliminar
+      </Button>
+    </div>
   )
 }

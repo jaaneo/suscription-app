@@ -20,14 +20,14 @@ export default function SuscriptionForm({ onClose, onSubmit }: Props) {
       <TextInput
         name="name"
         label="Nombre de la cuenta de streaming"
-        placeholder="Netflix, Tidal o Disney +"
+        placeholder="Netflix, Tidal, Spotify, etc.."
         register={register}
         error={errors.name}
         />
       <TextArea
         name="description"
         label="Descripción"
-        placeholder="Cuenta de peliculas y series o cuenta de música en alta calidad"
+        placeholder="Descripción de la cuenta"
         register={register}
         error={errors.description}
         />
@@ -47,15 +47,15 @@ export default function SuscriptionForm({ onClose, onSubmit }: Props) {
         error={errors.image}
         />
       <TextInput
-        name="type"
-        label="Tipo de cuenta"
-        placeholder="Música, Serie, Peliculas"
+        name="amount"
+        label="Monto a pagar ($ CLP)"
+        placeholder="10500"
         register={register}
-        error={errors.type}
+        error={errors.amount}
         />
       <div className="flex gap-2">
         <Button type="submit" variant="default">
-          Crear tarea
+          Crear suscripción
         </Button>
         <Button onClick={onClose} variant="outline">
           Cancel

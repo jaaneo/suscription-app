@@ -26,7 +26,7 @@ export default function SuscriptionList({
               description={suscription.description}
               datePayment={suscription.datePayment}
               image={suscription.image}
-              type={suscription.type}
+              amount={suscription.amount}
               onRemove={onSuscriptionRemove}
             />
           ))}

@@ -4,7 +4,7 @@ export interface Suscription {
   description: string
   datePayment: string
   image: string
-  type: string
+  amount: string
   done?: boolean
 }
 

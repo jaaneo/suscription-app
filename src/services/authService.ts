@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { LoginPayload, RegisterPayload } from 'src/@types/User'
 
-const baseUrl = 'http://localhost:4500/api/auth'
+const baseUrl = 'https://api.jaaneo.xyz:4500/api/auth'
 
 const login = async (payload: LoginPayload) => {
   const { data } = await axios.post(`${baseUrl}/login`, payload)
